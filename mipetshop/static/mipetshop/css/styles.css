@@ -4,12 +4,22 @@ body {
     padding: 0;
     background-color: #f9f9f9;
 }
+
+
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1rem;
 }
+
+/* Estilo para el logo */
+header img {
+    width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -148,42 +158,43 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-  }
-  
-  .popup {
-    background-color: #fff;
+}
+
+.popup {
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .popup h2 {
+    text-align: center; /* Alinea el contenido del popup al centro */
+    max-width: 80%; /* Ajusta el ancho máximo del popup */
+}
+
+.popup h2 {
     margin-top: 0;
-  }
-  
-  .popup button {
+}
+
+.popup button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .popup button:hover {
+    margin-top: 10px; /* Ajusta el margen superior del botón */
+    margin-bottom: 10px; /* Ajusta el margen inferior del botón */
+}
+
+.popup button:hover {
     background-color: #0056b3;
-  }
-  
-  .mensaje-agregado {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-  }
-  
+}
+
+.popup-img-container {
+    text-align: center; /* Alinea la imagen al centro dentro del contenedor */
+}
+
+.popup-img-container img {
+    max-width: 50%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Ajusta la altura automáticamente según el ancho */
+    display: block; /* Hace que la imagen sea un bloque para manejar correctamente el margen automático */
+    margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
+}    
