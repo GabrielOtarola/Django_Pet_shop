@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huachitos encuentra y da familia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Pet Shop</h1>
+        <p>Tu tienda en línea para mascotas</p>
+    </header>
+    <br>
+    
+    <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">PetShop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gatos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./Alimento_Seco_Gato.html">Alimento Seco</a></li>
+                <li><a class="dropdown-item" href="./Alimento_Humedo_Gato.html">Alimento Húmedo</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Perros
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./Alimento_Perro.html">Alimento Seco</a></li>
+              </ul>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./Accesorios.html">Accesorios</a>
+              </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <h1><img src="./img/logo_huachitos.jpg" alt="Huachitos"></h1>
+    <div class="container">
+        <div class="row">
+            <h2>Animales en adopción</h2>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="enviar">Ver</button>
+        
+        <div class="row">
+            <table class="table" id="Animales">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Descripción Fisica</th>
+                        <th scope="col">Imagen</th>                      
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+    <script  type="text/javascript" src="Api.js"></script>
+</body>
+</html>
