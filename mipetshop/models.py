@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# Modelo Producto
+class Producto(models.Model):
+    nombre = models.CharField(max_length=80)
+    precio = models.IntegerField()
+    descripcion = models.CharField(max_length=200)

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ operacion }} Producto</title>
+</head>
+<body>
+    <h1>{{ operacion }} Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ operacion }}</button>
+    </form>
+    <a href="{% url 'lista_productos' %}">Volver a la lista</a>
+</body>
+</html>
