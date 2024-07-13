@@ -103,25 +103,3 @@ function cerrarPopup() {
   }, 2000);
 
   
-  
-  // Función para mostrar el mensaje de que el producto se ha agregado al carrito
-  function mostrarMensaje() {
-    alert('El producto se ha agregado al carrito');
-  }
-  
-  // Función para agregar al carrito y mostrar el mensaje
-  function agregarAlCarrito() {
-    mostrarMensaje();
-  }
-  
-
-  function mostrarMensaje() {
-    var mensaje = document.createElement("div");
-    mensaje.textContent = "El producto se ha agregado al carrito";
-    mensaje.classList.add("mensaje-agregado");
-    document.body.appendChild(mensaje);
-    setTimeout(function() {
-      mensaje.remove();
-    }, 2000);
-  }
-  
