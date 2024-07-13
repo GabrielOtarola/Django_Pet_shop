@@ -16,125 +16,157 @@
     </header>
     <br>
 
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Gatos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li>
-                <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Perros
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gatos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li>
+                            <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Perros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
+                    </li>
+                </ul>
+                <!-- Carrito de compras -->
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                    Ver Carrito
+                    <span id="carritoCantidad" class="badge bg-secondary"></span>
+                </button>
+            </div>
         </div>
-      </div>
     </nav>
 
     <div class="container">
-      <h2>Categoria Alimento Humedo</h2>
-      <br>
+        <h2>Categoría Alimento Húmedo</h2>
+        <br>
         <div class="row">
             <div class="card" style="width: 18rem;">
                 <img src="{% static 'mipetshop/img/mastercath.jpg' %}" class="card-img-top" alt="Master Cat">
                 <div class="card-body">
-                  <h5 class="card-title">Master Cat</h5>
-                  <p class="card-text">Alimento humedo adulto trocitos de Salmón.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-                
-
+                    <h5 class="card-title">Master Cat</h5>
+                    <p class="card-text">Alimento húmedo adulto trocitos de Salmón.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Master Cat', 'Alimento húmedo adulto trocitos de Salmón')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/kitcath.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/kitcath.jpg' %}" class="card-img-top" alt="Kit Cat">
                 <div class="card-body">
-                  <h5 class="card-title">Kit Cat</h5>
-                  <p class="card-text">Gravy Series Tuna & whitebait.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Kit Cat</h5>
+                    <p class="card-text">Gravy Series Tuna & whitebait.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Kit Cat', 'Gravy Series Tuna & whitebait')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/felixh.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/felixh.jpg' %}" class="card-img-top" alt="Felix">
                 <div class="card-body">
-                  <h5 class="card-title">Felix</h5>
-                  <p class="card-text">Alimento humedo gato adulto Classic Atun.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Felix</h5>
+                    <p class="card-text">Alimento humedo gato adulto Classic Atun.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Felix', 'Alimento humedo gato adulto Classic Atun')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/proplanh.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/proplanh.jpg' %}" class="card-img-top" alt="Pro Plan">
                 <div class="card-body">
-                  <h5 class="card-title">Pro Plan</h5>
-                  <p class="card-text">.Alimento humedo gato adulto pollo y arroz Lata.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Pro Plan</h5>
+                    <p class="card-text">Alimento humedo gato adulto pollo y arroz Lata.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Pro Plan', 'Alimento humedo gato adulto pollo y arroz Lata')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/cat chowh.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/cat chowh.jpg' %}" class="card-img-top" alt="Cat Chow">
                 <div class="card-body">
-                  <h5 class="card-title">Cat Chow</h5>
-                  <p class="card-text">Alimento humedo gatos adultos Carne.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Cat Chow</h5>
+                    <p class="card-text">Alimento humedo gatos adultos Carne.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cat Chow', 'Alimento humedo gatos adultos Carne')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/fancyfeasth.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/fancyfeasth.jpg' %}" class="card-img-top" alt="Fancy Feast">
                 <div class="card-body">
-                  <h5 class="card-title">Fancy Feast</h5>
-                  <p class="card-text">Mousse de Carne.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Fancy Feast</h5>
+                    <p class="card-text">Mousse de Carne.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Fancy Feast', 'Mousse de Carne')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/hillsh.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/hillsh.jpg' %}" class="card-img-top" alt="Hills Prescription Diet">
                 <div class="card-body">
-                  <h5 class="card-title">Hills Prescription Diet</h5>
-                  <p class="card-text">K/D Kidney Care Cat Lata.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
-
+                    <h5 class="card-title">Hills Prescription Diet</h5>
+                    <p class="card-text">K/D Kidney Care Cat Lata.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hills Prescription Diet', 'K/D Kidney Care Cat Lata')">Agregar</button>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/vitakrafth.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/vitakrafth.jpg' %}" class="card-img-top" alt="Vitakraft">
                 <div class="card-body">
-                  <h5 class="card-title">Vitakraft</h5>
-                  <p class="card-text">Poesie Creation Pescado.</p>
-
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <h5 class="card-title">Vitakraft</h5>
+                    <p class="card-text">Poesie Creation Pescado.</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Vitakraft', 'Poesie Creation Pescado')">Agregar</button>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
-    <script src="{% static 'mipetshop/js/script.js' %}"></script>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="carritoContainer">
+                  <!-- Aquí se mostrarán los productos del carrito -->
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Proceder al Pago</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Modal de confirmación para eliminar -->
+  <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Estás seguro de que quieres eliminar este producto del carrito?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
 </body>
 </html>
