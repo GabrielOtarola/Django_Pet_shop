@@ -16,6 +16,7 @@
     </header>
     <br>
 
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
@@ -48,10 +49,11 @@
               </li>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <!-- Carrito de compras -->
+          <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
+            Ver Carrito
+            <span id="carritoCantidad" class="badge bg-secondary"></span>
+        </button>
         </div>
       </div>
     </nav>
@@ -65,7 +67,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Master Cat</h5>
                     <p class="card-text">Alimento de gato adulto Salmón.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Master Cat', 'Alimento de gato adulto Salmón')">Agregar</button>
                   </div>
                 </div>
 
@@ -74,7 +76,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Royal Canin</h5>
                   <p class="card-text">Alimento de gato adulto Indoor Home Life.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Royal Canin', 'Alimento de gato adulto Indoor Home Life')">Agregar</button>
 
                 </div>
               </div>
@@ -83,7 +85,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Hills Science Diet</h5>
                   <p class="card-text">Adult Haireball Control Chicken Cat.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Hills Science Diet', 'Adult Haireball Control Chicken Cat')">Agregar</button>
 
                 </div>
               </div>
@@ -92,7 +94,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Agility</h5>
                   <p class="card-text">Alimento para gatitos.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Agility', 'Alimento para gatitos')">Agregar</button>
 
                 </div>
               </div>
@@ -101,7 +103,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Acana</h5>
                   <p class="card-text">Alimento Meadowland gatos todas las edades.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Acana', 'Alimento Meadowland gatos todas las edades')">Agregar</button>
 
                 </div>
               </div>
@@ -110,7 +112,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Whiskas</h5>
                   <p class="card-text">Alimento para gatos adultos Salmon.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Whiskas', 'Alimento para gatos adultos Salmon')">Agregar</button>
 
                 </div>
               </div>
@@ -119,7 +121,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Cat Chow</h5>
                   <p class="card-text">Alimento para gatos adultos Carne.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Cat Chow', 'Alimento para gatos adultos Carne')">Agregar</button>
 
                 </div>
               </div>
@@ -128,12 +130,51 @@
                 <div class="card-body">
                   <h5 class="card-title">Fit Formula</h5>
                   <p class="card-text">Alimento para gatos adulto.</p>
-                  <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                  <button class="btn btn-primary" onclick="agregarAlCarrito('Fit Formula', 'Alimento para gatos adulto')">Agregar</button>
 
                 </div>
             </div>
         </div>
     </div>
-    <script src="{% static 'mipetshop/js/script.js' %}"></script>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="carritoContainer">
+                  <!-- Aquí se mostrarán los productos del carrito -->
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Proceder al Pago</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Modal de confirmación para eliminar -->
+  <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  ¿Estás seguro de que quieres eliminar este producto del carrito?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
 </body>
 </html>

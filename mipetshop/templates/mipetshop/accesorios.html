@@ -47,10 +47,11 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <!-- Carrito de compras -->
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                    Ver Carrito
+                    <span id="carritoCantidad" class="badge bg-secondary"></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -64,7 +65,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Bolso para mascotas</h5>
                     <p class="card-text">Recorra la ciudad con su mascota en un bolso cómodo con todo lo necesario para su mascota.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Bolso para mascotas', 'Recorra la ciudad con su mascota en un bolso cómodo con todo lo necesario para su mascota')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -72,7 +73,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Canil para mascotas</h5>
                     <p class="card-text">Jaula transportadora de viaje para mascotas.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Canil para mascotas', 'Jaula transportadora de viaje para mascotas')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -80,7 +81,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Sofa Rascador</h5>
                     <p class="card-text">Hermoso rascador apto para todas las edades, es acolchado y cómodo.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Sofa Rascador', 'Hermoso rascador apto para todas las edades, es acolchado y cómodo')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -88,7 +89,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Arenero cerrado</h5>
                     <p class="card-text">Este arenero le proveerá a tu gato un lugar cómodo y privado donde realizar sus necesidades.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Arenero cerrado', 'Este arenero le proveerá a tu gato un lugar cómodo y privado donde realizar sus necesidades')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -96,7 +97,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Cama rectangular</h5>
                     <p class="card-text">Una cama con un simpático diseño que se adapta a la decoración de cualquier casa.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cama rectangular', 'Una cama con un simpático diseño que se adapta a la decoración de cualquier casa')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -104,7 +105,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Hueso de goma</h5>
                     <p class="card-text">Juguetes de goma para perro, mordedores de entrenamiento para cachorro.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hueso de goma', 'Juguetes de goma para perro, mordedores de entrenamiento para cachorro')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -112,7 +113,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Dispensador de comida</h5>
                     <p class="card-text">Este comedero está diseñado de plástico no tóxico resistente y contra derrames.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Dispensador de comida', 'Este comedero está diseñado de plástico no tóxico resistente y contra derrames')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -120,11 +121,50 @@
                 <div class="card-body">
                     <h5 class="card-title">Racador para gatos</h5>
                     <p class="card-text">Rascador pedestal para gatos, pensado para entretener a tu gato por horas.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Racador para gatos', 'Rascador pedestal para gatos, pensado para entretener a tu gato por horas')">Agregar</button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{% static 'mipetshop/js/script.js' %}"></script>
-</body>
-</html>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="carritoContainer">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres eliminar este producto del carrito?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
+  </body>
+  </html>
