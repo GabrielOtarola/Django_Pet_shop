@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto
 from .forms import ProductoForm
 
+
 # Vistas principales
 def index(request):
     return render(request, 'mipetshop/index.html')
@@ -57,3 +58,8 @@ def eliminar_producto(request, pk):
         producto.delete()
         return redirect('lista_productos')
     return render(request, 'mipetshop/confirmar_eliminacion.html', {'producto': producto})
+
+def redirect_to_alimento_seco_gato(request):
+    # Puedes realizar cualquier lógica adicional aquí antes de la redirección
+    return redirect('alimento_seco_gato')  # Redirige a la vista 'alimento_seco_gato' definida en urls.py
+
