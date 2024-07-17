@@ -47,11 +47,10 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
                     </li>
                 </ul>
-                <!-- Carrito de compras -->
-                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
-                    Ver Carrito
-                    <span id="carritoCantidad" class="badge bg-secondary"></span>
-                </button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -121,45 +120,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Racador para gatos</h5>
                     <p class="card-text">Rascador pedestal para gatos, pensado para entretener a tu gato por horas.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Racador para gatos', 'Rascador pedestal para gatos, pensado para entretener a tu gato por horas')">Agregar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal del Carrito -->
-    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="carritoContainer">
-                    <!-- Aquí se mostrarán los productos del carrito -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Proceder al Pago</button>
-                </div>
-            </div>
-        </div>
-    </div>
-  
-    <!-- Modal de confirmación para eliminar -->
-    <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que quieres eliminar este producto del carrito?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
                 </div>
             </div>
         </div>

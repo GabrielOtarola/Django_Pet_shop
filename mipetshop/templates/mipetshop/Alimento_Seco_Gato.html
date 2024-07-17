@@ -49,11 +49,26 @@
               </li>
             </li>
           </ul>
+          <!-- Botón de Ingresar, Salir o Bienvenida -->
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+          </li>
+        {% endif %}
+      </ul>    
           <!-- Carrito de compras -->
           <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
             Ver Carrito
             <span id="carritoCantidad" class="badge bg-secondary"></span>
-        </button>
+        </button>         
         </div>
       </div>
     </nav>
@@ -136,45 +151,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal del Carrito -->
-    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body" id="carritoContainer">
-                  <!-- Aquí se mostrarán los productos del carrito -->
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary">Proceder al Pago</button>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <!-- Modal de confirmación para eliminar -->
-  <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  ¿Estás seguro de que quieres eliminar este producto del carrito?
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
+    <script src="{% static 'mipetshop/js/script.js' %}"></script>
 </body>
 </html>
