@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Producto
 from .forms import ProductoForm
-from django.contrib.auth import logout
+from django.contrib.auth import logout, authenticate, login
 
 # Verificar si el usuario tiene permisos de administrador
 def is_admin(user):
@@ -76,3 +76,15 @@ def redirect_to_alimento_seco_gato(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')  # Redirige a la página de inicio o a donde desees
+        else:
+            return render(request, 'registration/login.html', {'error_message': 'Nombre de usuario o contraseña incorrectos.'})
+    return render(request, 'registration/login.html')
