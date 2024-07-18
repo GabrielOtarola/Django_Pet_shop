@@ -47,10 +47,29 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <!-- Botón de Ingresar, Salir o Bienvenida -->
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="nav-link btn btn-link">Salir</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+          </li>
+        {% endif %}
+      </ul>
+                <!-- Carrito de compras -->
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                    Ver Carrito
+                    <span id="carritoCantidad" class="badge bg-secondary"></span>
+                </button>    
             </div>
         </div>
     </nav>
