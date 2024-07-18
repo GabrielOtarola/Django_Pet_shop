@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para agregar un producto al carrito
-    window.agregarAlCarrito = function (nombre, descripcion) {
+    window.agregarAlCarrito = function (nombre, descripcion, precio, imagen) {
         let carrito = JSON.parse(localStorage.getItem("carrito"));
-        let producto = { nombre: nombre, descripcion: descripcion };
+        let producto = { nombre: nombre, descripcion: descripcion, precio: precio, imagen: imagen };
         carrito.push(producto);
         localStorage.setItem("carrito", JSON.stringify(carrito));
         mostrarCarrito();
@@ -44,17 +44,33 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             carrito.forEach(function (producto, index) {
                 let item = document.createElement("div");
-                item.className = "carrito-item mb-2";
-                item.innerHTML = `<h5>${producto.nombre}</h5><p>${producto.descripcion}</p><button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${index})">Eliminar</button>`;
+                item.className = "carrito-item mb-2 d-flex align-items-center";
+                item.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}" class="img-thumbnail me-2" style="width: 50px; height: 50px;">
+                    <div>
+                        <h5>${producto.nombre}</h5>
+                        <p>${producto.descripcion}</p>
+                        <p><strong>Precio: $${producto.precio.toLocaleString()} CLP</strong></p>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                    </div>
+                `;
                 carritoContainer.appendChild(item);
             });
         }
+        calcularTotalCarrito();
     };
 
     // Función para actualizar la cantidad de productos en el carrito en el navbar
     function actualizarCantidadCarrito() {
         let carrito = JSON.parse(localStorage.getItem("carrito"));
         document.getElementById("carritoCantidad").innerText = carrito.length;
+    }
+
+    // Función para calcular el total del carrito
+    function calcularTotalCarrito() {
+        let carrito = JSON.parse(localStorage.getItem("carrito"));
+        let total = carrito.reduce((acc, producto) => acc + producto.precio, 0);
+        document.getElementById("totalCarrito").innerText = total.toLocaleString();
     }
 
     // Función para mostrar un mensaje en la página

@@ -48,28 +48,28 @@
                     </li>
                 </ul>
                 <!-- Botón de Ingresar, Salir o Bienvenida -->
-      <ul class="navbar-nav">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
-          </li>
-          <li class="nav-item">
-            <form action="{% url 'logout' %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="nav-link btn btn-link">Salir</button>
-            </form>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
-          </li>
-        {% endif %}
-      </ul>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link">Salir</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+                        </li>
+                    {% endif %}
+                </ul>
                 <!-- Carrito de compras -->
                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
                     Ver Carrito
                     <span id="carritoCantidad" class="badge bg-secondary"></span>
-                </button>    
+                </button>
             </div>
         </div>
     </nav>
@@ -79,72 +79,100 @@
         <br>
         <div class="row">
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/bolsotranpor.webp' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/bolsotranpor.webp' %}" class="card-img-top" alt="Bolso para mascotas">
                 <div class="card-body">
                     <h5 class="card-title">Bolso para mascotas</h5>
                     <p class="card-text">Recorra la ciudad con su mascota en un bolso cómodo con todo lo necesario para su mascota.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Bolso para mascotas', 'Recorra la ciudad con su mascota en un bolso cómodo con todo lo necesario para su mascota')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $15,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Bolso para mascotas', 'Recorra la ciudad con su mascota en un bolso cómodo con todo lo necesario para su mascota', 15000, '{% static 'mipetshop/img/bolsotranpor.webp' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/tranporPE.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/tranporPE.jpg' %}" class="card-img-top" alt="Canil para mascotas">
                 <div class="card-body">
                     <h5 class="card-title">Canil para mascotas</h5>
                     <p class="card-text">Jaula transportadora de viaje para mascotas.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Canil para mascotas', 'Jaula transportadora de viaje para mascotas')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $25,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Canil para mascotas', 'Jaula transportadora de viaje para mascotas', 25000, '{% static 'mipetshop/img/tranporPE.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/rascador.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/rascador.jpg' %}" class="card-img-top" alt="Sofa Rascador">
                 <div class="card-body">
                     <h5 class="card-title">Sofa Rascador</h5>
                     <p class="card-text">Hermoso rascador apto para todas las edades, es acolchado y cómodo.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Sofa Rascador', 'Hermoso rascador apto para todas las edades, es acolchado y cómodo')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $10,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Sofa Rascador', 'Hermoso rascador apto para todas las edades, es acolchado y cómodo', 10000, '{% static 'mipetshop/img/rascador.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/areneroG.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/areneroG.jpg' %}" class="card-img-top" alt="Arenero cerrado">
                 <div class="card-body">
                     <h5 class="card-title">Arenero cerrado</h5>
                     <p class="card-text">Este arenero le proveerá a tu gato un lugar cómodo y privado donde realizar sus necesidades.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Arenero cerrado', 'Este arenero le proveerá a tu gato un lugar cómodo y privado donde realizar sus necesidades')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $12,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Arenero cerrado', 'Este arenero le proveerá a tu gato un lugar cómodo y privado donde realizar sus necesidades', 12000, '{% static 'mipetshop/img/areneroG.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/camaP.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/camaP.jpg' %}" class="card-img-top" alt="Cama rectangular">
                 <div class="card-body">
                     <h5 class="card-title">Cama rectangular</h5>
                     <p class="card-text">Una cama con un simpático diseño que se adapta a la decoración de cualquier casa.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cama rectangular', 'Una cama con un simpático diseño que se adapta a la decoración de cualquier casa')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $20,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cama rectangular', 'Una cama con un simpático diseño que se adapta a la decoración de cualquier casa', 20000, '{% static 'mipetshop/img/camaP.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/jugueteP.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/jugueteP.jpg' %}" class="card-img-top" alt="Hueso de goma">
                 <div class="card-body">
                     <h5 class="card-title">Hueso de goma</h5>
                     <p class="card-text">Juguetes de goma para perro, mordedores de entrenamiento para cachorro.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hueso de goma', 'Juguetes de goma para perro, mordedores de entrenamiento para cachorro')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $5,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hueso de goma', 'Juguetes de goma para perro, mordedores de entrenamiento para cachorro', 5000, '{% static 'mipetshop/img/jugueteP.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/dispensador.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/dispensador.jpg' %}" class="card-img-top" alt="Dispensador de comida">
                 <div class="card-body">
                     <h5 class="card-title">Dispensador de comida</h5>
                     <p class="card-text">Este comedero está diseñado de plástico no tóxico resistente y contra derrames.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Dispensador de comida', 'Este comedero está diseñado de plástico no tóxico resistente y contra derrames')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $8,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Dispensador de comida', 'Este comedero está diseñado de plástico no tóxico resistente y contra derrames', 8000, '{% static 'mipetshop/img/dispensador.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/rascadorG.jpg' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/rascadorG.jpg' %}" class="card-img-top" alt="Rascador para gatos">
                 <div class="card-body">
-                    <h5 class="card-title">Racador para gatos</h5>
+                    <h5 class="card-title">Rascador para gatos</h5>
                     <p class="card-text">Rascador pedestal para gatos, pensado para entretener a tu gato por horas.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar</button>
+                    <p class="card-text"><strong>Precio: $18,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Rascador para gatos', 'Rascador pedestal para gatos, pensado para entretener a tu gato por horas', 18000, '{% static 'mipetshop/img/rascadorG.jpg' %}')">Agregar</button>
                 </div>
             </div>
         </div>
     </div>
   
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="carritoContainer">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
+                <div class="modal-footer">
+                    <h5>Total: $<span id="totalCarrito">0</span> CLP</h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
-  </body>
-  </html>
+</body>
+</html>

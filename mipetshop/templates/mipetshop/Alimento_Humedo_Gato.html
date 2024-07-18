@@ -15,7 +15,6 @@
         <h2>Alimento para Gatos</h2>
     </header>
     <br>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -50,23 +49,23 @@
                     </li>
                 </ul>
                 <!-- Botón de Ingresar, Salir o Bienvenida -->
-      <ul class="navbar-nav">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
-          </li>
-          <li class="nav-item">
-            <form action="{% url 'logout' %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="nav-link btn btn-link">Salir</button>
-            </form>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
-          </li>
-        {% endif %}
-      </ul>    
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link">Salir</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+                        </li>
+                    {% endif %}
+                </ul>
                 <!-- Carrito de compras -->
                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
                     Ver Carrito
@@ -85,7 +84,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Master Cat</h5>
                     <p class="card-text">Alimento húmedo adulto trocitos de Salmón.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Master Cat', 'Alimento húmedo adulto trocitos de Salmón', '')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $20,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Master Cat', 'Alimento húmedo adulto trocitos de Salmón', 20000, '{% static 'mipetshop/img/mastercath.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -93,7 +93,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Kit Cat</h5>
                     <p class="card-text">Gravy Series Tuna & whitebait.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Kit Cat', 'Gravy Series Tuna & whitebait')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $15,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Kit Cat', 'Gravy Series Tuna & whitebait', 15000, '{% static 'mipetshop/img/kitcath.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -101,7 +102,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Felix</h5>
                     <p class="card-text">Alimento humedo gato adulto Classic Atun.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Felix', 'Alimento humedo gato adulto Classic Atun')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $18,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Felix', 'Alimento humedo gato adulto Classic Atun', 18000, '{% static 'mipetshop/img/felixh.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -109,7 +111,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Pro Plan</h5>
                     <p class="card-text">Alimento humedo gato adulto pollo y arroz Lata.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Pro Plan', 'Alimento humedo gato adulto pollo y arroz Lata')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $22,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Pro Plan', 'Alimento humedo gato adulto pollo y arroz Lata', 22000, '{% static 'mipetshop/img/proplanh.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -117,7 +120,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Cat Chow</h5>
                     <p class="card-text">Alimento humedo gatos adultos Carne.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cat Chow', 'Alimento humedo gatos adultos Carne')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $17,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Cat Chow', 'Alimento humedo gatos adultos Carne', 17000, '{% static 'mipetshop/img/cat chowh.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -125,7 +129,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Fancy Feast</h5>
                     <p class="card-text">Mousse de Carne.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Fancy Feast', 'Mousse de Carne')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $14,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Fancy Feast', 'Mousse de Carne', 14000, '{% static 'mipetshop/img/fancyfeasth.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -133,7 +138,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Hills Prescription Diet</h5>
                     <p class="card-text">K/D Kidney Care Cat Lata.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hills Prescription Diet', 'K/D Kidney Care Cat Lata')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $23,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Hills Prescription Diet', 'K/D Kidney Care Cat Lata', 23000, '{% static 'mipetshop/img/hillsh.jpg' %}')">Agregar</button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
@@ -141,7 +147,8 @@
                 <div class="card-body">
                     <h5 class="card-title">Vitakraft</h5>
                     <p class="card-text">Poesie Creation Pescado.</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Vitakraft', 'Poesie Creation Pescado')">Agregar</button>
+                    <p class="card-text"><strong>Precio: $19,000 CLP</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Vitakraft', 'Poesie Creation Pescado', 19000, '{% static 'mipetshop/img/vitakrafth.jpg' %}')">Agregar</button>
                 </div>
             </div>
         </div>
@@ -149,42 +156,24 @@
 
     <!-- Modal del Carrito -->
     <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body" id="carritoContainer">
-                  <!-- Aquí se mostrarán los productos del carrito -->
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary">Comprar</button>
-              </div>
-          </div>
-      </div>
-  </div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="carritoContainer">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
+                <div class="modal-footer">
+                    <h5>Total: $<span id="totalCarrito">0</span> CLP</h5>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Modal de confirmación para eliminar -->
-  <div class="modal fade" id="confirmacionEliminarModal" tabindex="-1" aria-labelledby="confirmacionEliminarModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="confirmacionEliminarModalLabel">Confirmar Eliminación</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  ¿Estás seguro de que quieres eliminar este producto del carrito?
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-danger" id="confirmarEliminar">Eliminar</button>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
+    <script src="{% static 'mipetshop/js/carrito.js' %}"></script>
 </body>
 </html>
