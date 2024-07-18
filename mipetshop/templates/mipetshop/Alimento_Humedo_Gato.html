@@ -56,7 +56,10 @@
             <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="nav-link btn btn-link">Salir</button>
+            </form>
           </li>
         {% else %}
           <li class="nav-item">

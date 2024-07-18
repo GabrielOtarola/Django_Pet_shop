@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato
+from .views import index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato, logout_view
 
 urlpatterns = [
     path('', index, name='index'),
@@ -9,6 +9,7 @@ urlpatterns = [
     path('accesorios/', accesorios, name='accesorios'),
     path('api/', api, name='api'),
     path('accounts/profile/', redirect_to_alimento_seco_gato, name='profile_redirect'),
+    path('logout/', logout_view, name='logout'),
    
 
     path('lista/', lista_productos, name='lista_productos'),

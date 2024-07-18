@@ -7,7 +7,9 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Lista de Productos</h1>
-        <a href="{% url 'crear_producto' %}" class="btn btn-success mb-3">Crear Producto</a>
+        {% if user.is_superuser %}
+            <a href="{% url 'crear_producto' %}" class="btn btn-success mb-3">Crear Producto</a>
+        {% endif %}
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -25,11 +27,13 @@
                         <td>{{ producto.descripcion }}</td>
                         <td>
                             <a href="{% url 'detalle_producto' producto.pk %}" class="btn btn-info">Ver</a>
-                            <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-warning">Editar</a>
-                            <form method="post" action="{% url 'eliminar_producto' producto.pk %}" style="display:inline;" onsubmit="return confirmarEliminacion();">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                            {% if user.is_superuser %}
+                                <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-warning">Editar</a>
+                                <form method="post" action="{% url 'eliminar_producto' producto.pk %}" style="display:inline;" onsubmit="return confirmarEliminacion();">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
@@ -45,6 +49,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVJSj4k8bKVlAuC6p3KGK6wc4eTu6h1qx+qKZ2LMgCT5SAa5d7Hep6DgfJep6KD3" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
