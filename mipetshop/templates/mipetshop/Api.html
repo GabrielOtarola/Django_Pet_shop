@@ -1,40 +1,41 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% load static %} <!-- Carga la etiqueta 'static' de Django para manejar archivos estáticos -->
+
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="en"> <!-- Establece el idioma del documento como inglés -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huachitos encuentra y da familia</title>
-  <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <meta charset="UTF-8"> <!-- Declara el conjunto de caracteres del documento como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el viewport para hacer que el diseño sea responsivo -->
+  <title>Huachitos encuentra y da familia</title> <!-- Título de la página web -->
+  <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}"> <!-- Enlace al archivo CSS de estilos, usando la etiqueta 'static' de Django -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Enlace al archivo CSS de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Enlace al archivo JavaScript de Bootstrap -->
 </head>
 <body>
     <header>
-        <h1>Pet Shop</h1>
-        <p>Tu tienda en línea para mascotas</p>
+        <h1>Pet Shop</h1> <!-- Encabezado principal de la página -->
+        <p>Tu tienda en línea para mascotas</p> <!-- Descripción debajo del encabezado -->
     </header>
-    <br>
+    <br> <!-- Salto de línea para espacio adicional -->
     
     <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!-- Barra de navegación -->
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
+        <a class="navbar-brand" href="{% url 'index' %}">PetShop</a> <!-- Enlace a la página de inicio -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span> <!-- Icono de la barra de navegación para pantallas pequeñas -->
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a> <!-- Enlace a la página de inicio -->
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Gatos
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li>
-                <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li>
+                <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para gatos -->
+                <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li> <!-- Enlace a la página de alimento húmedo para gatos -->
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -42,10 +43,10 @@
                 Perros
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li>
+                <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para perros -->
               </ul>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a> <!-- Enlace a la página de accesorios -->
               </li>
             </li>
           </ul>
@@ -53,16 +54,16 @@
       </div>
     </nav>
     
-    <h1><img src="{% static 'mipetshop/img/logo_huachitos.jpg' %}" alt="Huachitos"></h1>
+    <h1><img src="{% static 'mipetshop/img/logo_huachitos.jpg' %}" alt="Huachitos"></h1> <!-- Imagen del logo -->
     <div class="container">
         <div class="row">
-            <h2>Animales en adopción</h2>
+            <h2>Animales en adopción</h2> <!-- Encabezado de la sección -->
         </div>
 
-        <button type="button" class="btn btn-primary" id="enviar">Ver</button>
+        <button type="button" class="btn btn-primary" id="enviar">Ver</button> <!-- Botón para ver los animales en adopción -->
         
         <div class="row">
-            <table class="table" id="Animales">
+            <table class="table" id="Animales"> <!-- Tabla para mostrar los animales en adopción -->
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -75,14 +76,11 @@
                 </thead>
             </table>
         </div>
-
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-
-    <script  type="text/javascript" src="{% static 'mipetshop/js/Api.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- Enlace al archivo jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> <!-- Enlace al archivo Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script> <!-- Enlace al archivo JavaScript de Bootstrap -->
+    <script type="text/javascript" src="{% static 'mipetshop/js/Api.js' %}"></script> <!-- Enlace al archivo JavaScript personalizado para manejar la API -->
 </body>
-</html>
+</html> <!-- Finaliza el documento HTML -->
