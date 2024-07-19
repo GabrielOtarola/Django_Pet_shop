@@ -1,191 +1,199 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif; /* Define la fuente y estilo de fuente para el cuerpo del documento */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0; /* Elimina el relleno predeterminado */
+    background-color: #f9f9f9; /* Establece el color de fondo */
 }
 
-
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+    background-color: #333; /* Establece el color de fondo del encabezado */
+    color: #fff; /* Establece el color del texto del encabezado */
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 1rem; /* Añade relleno alrededor del contenido */
 }
 
 /* Estilo para el logo */
 header img {
-    width: 100px; /* Ajusta el tamaño del logo según sea necesario */
-    height: auto; /* Ajusta la altura automáticamente */
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: auto; /* Ajusta la altura automáticamente según el ancho */
     margin-right: 10px; /* Espacio entre el logo y el texto */
 }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+.container {
+    max-width: 1200px; /* Define el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 2rem; /* Añade relleno alrededor del contenido */
 }
+
 /* Estilos para la sección de productos */
 .products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: flex; /* Utiliza flexbox para la disposición de los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en la siguiente línea */
+    gap: 1rem; /* Espacio entre los elementos */
 }
+
 .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(33.33% - 1rem);
+    background-color: #fff; /* Establece el color de fondo de la tarjeta de producto */
+    border: 1px solid #ddd; /* Define el borde de la tarjeta */
+    padding: 1rem; /* Añade relleno dentro de la tarjeta */
+    border-radius: 5px; /* Redondea las esquinas de la tarjeta */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra a la tarjeta */
+    flex: 1 1 calc(33.33% - 1rem); /* Define cómo los elementos crecen, se encogen y el tamaño base */
 }
+
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
+    height: auto; /* Ajusta la altura automáticamente según el ancho */
 }
+
 /* Estilos para el pie de página */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+    background-color: #333; /* Establece el color de fondo del pie de página */
+    color: #fff; /* Establece el color del texto del pie de página */
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 1rem; /* Añade relleno alrededor del contenido */
 }
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+
+.row {
+    display: flex; /* Utiliza flexbox para la disposición de los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en la siguiente línea */
+    gap: 1rem; /* Espacio entre los elementos */
 }
+
 .descripcion {
-    font-size: 30px; /* Tamaño del texto */
+    font-size: 30px; /* Establece el tamaño del texto */
 }
- .boton-registrarse {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 16px;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    border-radius: 5px;
+
+.boton-registrarse {
+    background-color: #007bff; /* Establece el color de fondo del botón */
+    color: #fff; /* Establece el color del texto del botón */
+    padding: 10px 16px; /* Añade relleno dentro del botón */
+    border: none; /* Elimina el borde predeterminado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 15px; /* Establece el tamaño de la fuente */
+    border-radius: 5px; /* Redondea las esquinas del botón */
 }
+
 /* Estilos generales para el formulario */
 #formulario {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
+    background-color: #fff; /* Establece el color de fondo del formulario */
+    border: 1px solid #ddd; /* Define el borde del formulario */
+    border-radius: 5px; /* Redondea las esquinas del formulario */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra al formulario */
+    padding: 20px; /* Añade relleno dentro del formulario */
+    margin: 20px auto; /* Añade margen alrededor del formulario y lo centra */
+    max-width: 500px; /* Define el ancho máximo del formulario */
 }
 
 /* Estilos para los campos del formulario */
 .campo {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Añade margen inferior a cada campo */
 }
 
 .campo label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    display: block; /* Hace que el label sea un bloque */
+    margin-bottom: 5px; /* Añade margen inferior al label */
+    font-weight: bold; /* Hace que el texto del label sea en negrita */
 }
 
 .campo input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+    width: 100%; /* Establece el ancho del input al 100% del contenedor */
+    padding: 10px; /* Añade relleno dentro del input */
+    border: 1px solid #ddd; /* Define el borde del input */
+    border-radius: 5px; /* Redondea las esquinas del input */
+    font-size: 16px; /* Establece el tamaño de la fuente */
 }
 
 /* Estilos para los mensajes de error */
 .campo .error {
-    color: red;
-    font-size: 14px;
-    display: none;
+    color: red; /* Establece el color del texto de error */
+    font-size: 14px; /* Establece el tamaño de la fuente del texto de error */
+    display: none; /* Oculta el mensaje de error por defecto */
 }
 
 /* Estilos para el botón de envío */
 #formularioRegistro button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    background-color: #007bff; /* Establece el color de fondo del botón */
+    color: #fff; /* Establece el color del texto del botón */
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 16px; /* Establece el tamaño de la fuente */
 }
 
 #formularioRegistro button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el ratón */
 }
 
 /* Estilos para el botón de cerrar */
 #formulario button {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    background-color: #dc3545; /* Establece el color de fondo del botón */
+    color: #fff; /* Establece el color del texto del botón */
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 16px; /* Establece el tamaño de la fuente */
+    margin-top: 10px; /* Añade margen superior al botón */
 }
 
 #formulario button:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Cambia el color de fondo del botón al pasar el ratón */
 }
+
 /* Estilo para ajustar las imágenes en las celdas de la tabla */
 #Animales img {
     max-width: 100px; /* Establece el ancho máximo de la imagen */
     height: auto; /* Permite que la altura se ajuste automáticamente según el ancho */
-  }
+}
 
-  /* Estilo para centrar el contenido en las columnas */
-  #Animales th,
-  #Animales td {
-    text-align: center;
-    vertical-align: middle;
-  }
+/* Estilo para centrar el contenido en las columnas */
+#Animales th,
+#Animales td {
+    text-align: center; /* Centra el texto horizontalmente */
+    vertical-align: middle; /* Centra el texto verticalmente */
+}
 
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+.popup-overlay {
+    position: fixed; /* Fija la posición en la pantalla */
+    top: 0; /* Establece la posición superior en 0 */
+    left: 0; /* Establece la posición izquierda en 0 */
+    width: 100%; /* Establece el ancho al 100% */
+    height: 100%; /* Establece la altura al 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
 }
 
 .popup {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff; /* Establece el color de fondo del popup */
+    padding: 20px; /* Añade relleno dentro del popup */
+    border-radius: 5px; /* Redondea las esquinas del popup */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Añade sombra al popup */
     text-align: center; /* Alinea el contenido del popup al centro */
     max-width: 80%; /* Ajusta el ancho máximo del popup */
 }
 
 .popup h2 {
-    margin-top: 0;
+    margin-top: 0; /* Elimina el margen superior del encabezado */
 }
 
 .popup button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px; /* Ajusta el margen superior del botón */
-    margin-bottom: 10px; /* Ajusta el margen inferior del botón */
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    background-color: #007bff; /* Establece el color de fondo del botón */
+    color: #fff; /* Establece el color del texto del botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 10px; /* Añade margen superior al botón */
+    margin-bottom: 10px; /* Añade margen inferior al botón */
 }
 
 .popup button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el ratón */
 }
 
 .popup-img-container {
@@ -197,4 +205,4 @@ footer {
     height: auto; /* Ajusta la altura automáticamente según el ancho */
     display: block; /* Hace que la imagen sea un bloque para manejar correctamente el margen automático */
     margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
-}    
+}

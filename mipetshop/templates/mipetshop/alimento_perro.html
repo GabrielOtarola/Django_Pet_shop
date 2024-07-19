@@ -1,131 +1,179 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% load static %} <!-- Carga el template tag 'static' de Django para usar archivos estáticos -->
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="en"> <!-- Inicia el documento HTML con el idioma configurado en inglés -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comida para Perros</title>
-    <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para ser responsive -->
+    <title>Comida para Perros</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}"> <!-- Enlace al archivo de estilos CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Enlace al archivo de estilos de Bootstrap desde un CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Enlace al archivo JavaScript de Bootstrap desde un CDN -->
 </head>
 <body>
     <header>
-        <h1>Pet Shop</h1>
-        <h2>Alimento para Perros</h2>
+        <h1>Pet Shop</h1> <!-- Título principal de la página -->
+        <h2>Alimento para Perros</h2> <!-- Subtítulo de la página -->
     </header>
-    <br>
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Gatos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li>
-                <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Perros
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li>
-              </ul>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
-              </li>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <br> <!-- Añade una línea en blanco para espacio -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!-- Navbar -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">PetShop</a> <!-- Enlace a la página principal -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> <!-- Ícono para el botón de toggling -->
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a> <!-- Enlace a la página de inicio -->
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gatos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para gatos -->
+                            <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li> <!-- Enlace a la página de alimento húmedo para gatos -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Perros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para perros -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a> <!-- Enlace a la página de accesorios -->
+                    </li>
+                </ul>
+                <!-- Botón de Ingresar, Salir o Bienvenida -->
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %} <!-- Verifica si el usuario está autenticado -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a> <!-- Mensaje de bienvenida para el usuario autenticado -->
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post"> <!-- Formulario para cerrar sesión -->
+                                {% csrf_token %} <!-- Añade un token CSRF para seguridad -->
+                                <button type="submit" class="nav-link btn btn-link">Salir</button> <!-- Botón para cerrar sesión -->
+                            </form>
+                        </li>
+                    {% else %} <!-- Si el usuario no está autenticado -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Ingresar</a> <!-- Enlace a la página de inicio de sesión -->
+                        </li>
+                    {% endif %}
+                </ul>
+                <!-- Carrito de compras -->
+                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                    Ver Carrito <!-- Texto del botón -->
+                    <span id="carritoCantidad" class="badge bg-secondary"></span> <!-- Insignia para mostrar la cantidad de productos en el carrito -->
+                </button>
+            </div>
         </div>
-      </div>
     </nav>
 
     <div class="container">
-      <h2>Categoria Alimento Seco</h2>
-      <br>
+        <h2>Categoria Alimento Seco</h2> <!-- Título de la categoría -->
+        <br> <!-- Añade una línea en blanco para espacio -->
         <div class="row">
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/comidaperro1.webp' %}" class="card-img-top" alt="Master Cat">
+                <img src="{% static 'mipetshop/img/comidaperro1.webp' %}" class="card-img-top" alt="Champion Dog Cachorros"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Champion Dog</h5>
-                  <p class="card-text">Alimento para cachorros.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Champion Dog Cachorros</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento para cachorros.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $16,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Champion Dog Cachorros', 'Alimento para cachorros', 16000, '{% static 'mipetshop/img/comidaperro1.webp' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/doko-cachorro.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <!-- Repetición de tarjetas de producto similares para otros productos -->
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/doko-cachorro.jpg' %}" class="card-img-top" alt="Doko Cachorros"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Doko cachorro</h5>
-                  <p class="card-text">Alimento seco para cachorros de todos los tamaños.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Doko Cachorros</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento seco para cachorros de todos los tamaños.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $18,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Doko Cachorros', 'Alimento seco para cachorros de todos los tamaños', 18000, '{% static 'mipetshop/img/doko-cachorro.jpg' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/purina.webp' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/purina.webp' %}" class="card-img-top" alt="Purina Pro Plan Cachorros"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Purina Pro Plan</h5>
-                  <p class="card-text">Protección durante su primera etapa de vida.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Purina Pro Plan Cachorros</h5> <!-- Título del producto -->
+                    <p class="card-text">Protección durante su primera etapa de vida.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $20,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Purina Pro Plan Cachorros', 'Protección durante su primera etapa de vida', 20000, '{% static 'mipetshop/img/purina.webp' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/pedigree.webp' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/pedigree.webp' %}" class="card-img-top" alt="Pedigree Cachorros"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Pedigree</h5>
-                  <p class="card-text">Alimento para cachorros.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Pedigree Cachorros</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento para cachorros.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $15,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Pedigree Cachorros', 'Alimento para cachorros', 15000, '{% static 'mipetshop/img/pedigree.webp' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/pedigreeA.webp' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/pedigreeA.webp' %}" class="card-img-top" alt="Pedigree Adultos"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Pedigree</h5>
-                  <p class="card-text">Alimento para perros adultos.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Pedigree Adultos</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento para perros adultos.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $17,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Pedigree Adultos', 'Alimento para perros adultos', 17000, '{% static 'mipetshop/img/pedigreeA.webp' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/dog_chowA.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/dog_chowA.jpg' %}" class="card-img-top" alt="Dog Chow Adultos"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Dog Chow</h5>
-                  <p class="card-text">Alimento que maximiza la vida de tu perro.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Dog Chow Adultos</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento que maximiza la vida de tu perro.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $19,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Dog Chow Adultos', 'Alimento que maximiza la vida de tu perro', 19000, '{% static 'mipetshop/img/dog_chowA.jpg' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/championdogA.jpg' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/championdogA.jpg' %}" class="card-img-top" alt="Champion Dog Adultos"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Champion Dog</h5>
-                  <p class="card-text">Alimento para perros adultos que contiene Omega 3 y prebióticos..</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Champion Dog Adultos</h5> <!-- Título del producto -->
+                    <p class="card-text">Alimento para perros adultos que contiene Omega 3 y prebióticos.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $20,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Champion Dog Adultos', 'Alimento para perros adultos que contiene Omega 3 y prebióticos', 20000, '{% static 'mipetshop/img/championdogA.jpg' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <img src="{% static 'mipetshop/img/purinaproA.webp' %}" class="card-img-top" alt="Master Cat">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'mipetshop/img/purinaproA.webp' %}" class="card-img-top" alt="Purina Pro Plan Adultos"> <!-- Imagen del producto -->
                 <div class="card-body">
-                  <h5 class="card-title">Pro Plan</h5>
-                  <p class="card-text">Formulado para perros adultos de razas medianas y grandes de edad avanzada.</p>
-                  <button class="btn btn-primary" onclick="mostrarMensaje()">Agregar</button>
+                    <h5 class="card-title">Purina Pro Plan Adultos</h5> <!-- Título del producto -->
+                    <p class="card-text">Formulado para perros adultos de razas medianas y grandes de edad avanzada.</p> <!-- Descripción del producto -->
+                    <p class="card-text"><strong>Precio: $22,000 CLP</strong></p> <!-- Precio del producto -->
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Purina Pro Plan Adultos', 'Formulado para perros adultos de razas medianas y grandes de edad avanzada', 22000, '{% static 'mipetshop/img/purinaproA.webp' %}')">Agregar</button> <!-- Botón para agregar el producto al carrito -->
                 </div>
-              </div>
+            </div>
         </div>
     </div>
-    <script src="{% static 'mipetshop/js/script.js' %}"></script>
+    
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true"> <!-- Contenedor del modal para el carrito de compras -->
+        <div class="modal-dialog modal-lg"> <!-- Define el tamaño del modal -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5> <!-- Título del modal -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Botón para cerrar el modal -->
+                </div>
+                <div class="modal-body" id="carritoContainer">
+                    <!-- Aquí se mostrarán los productos del carrito -->
+                </div>
+                <div class="modal-footer">
+                    <h5>Total: $<span id="totalCarrito">0</span> CLP</h5> <!-- Total del carrito -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> <!-- Botón para cerrar el modal -->
+                    <button type="button" class="btn btn-primary">Comprar</button> <!-- Botón para proceder con la compra -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'mipetshop/js/carrito.js' %}"></script> <!-- Enlace al archivo JavaScript personalizado para manejar el carrito de compras -->
 </body>
-</html>
+</html> <!-- Finaliza el documento HTML -->

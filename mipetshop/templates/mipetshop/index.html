@@ -1,98 +1,99 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
+{% load static %} <!-- Carga la etiqueta 'static' de Django para manejar archivos estáticos -->
+
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y establece el idioma como español -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Shop</title>
-    <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'mipetshop/js/script.js' %}"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta la escala y el tamaño de la ventana gráfica para dispositivos móviles -->
+    <title>Pet Shop</title> <!-- Título de la página que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="{% static 'mipetshop/css/styles.css' %}"> <!-- Enlace al archivo CSS de estilos, usando la etiqueta 'static' de Django -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Enlace al archivo JavaScript de jQuery desde una CDN -->
+    <script src="{% static 'mipetshop/js/script.js' %}"></script> <!-- Enlace al archivo JavaScript personalizado, usando la etiqueta 'static' de Django -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Enlace al archivo CSS de Bootstrap desde una CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Enlace al archivo JavaScript de Bootstrap desde una CDN -->
 </head>
 <body>
-  <div class="popup-overlay" id="popupOverlay">
-    <div class="popup">
-      <h1>Bienvenido</h1>
-      <p>¡Gracias por visitar nuestro sitio web!</p>
-      <p>Las mejores ofertas las encuentras aqui, en tu tienda en linea</p>
-      <div class="popup-img-container">
-        <img src="{% static 'mipetshop/img/bienvenida.gif' %}" alt="Imagen de bienvenida">
+  <div class="popup-overlay" id="popupOverlay"> <!-- Contenedor del popup de bienvenida -->
+    <div class="popup"> <!-- Contenido del popup -->
+      <h1>Bienvenido</h1> <!-- Encabezado del popup -->
+      <p>¡Gracias por visitar nuestro sitio web!</p> <!-- Texto de bienvenida -->
+      <p>Las mejores ofertas las encuentras aquí, en tu tienda en línea</p> <!-- Texto adicional de bienvenida -->
+      <div class="popup-img-container"> <!-- Contenedor para la imagen del popup -->
+        <img src="{% static 'mipetshop/img/bienvenida.gif' %}" alt="Imagen de bienvenida"> <!-- Imagen de bienvenida, usando la etiqueta 'static' de Django -->
       </div>
-      <button onclick="cerrarPopup()">Cerrar</button>
+      <button onclick="cerrarPopup()">Cerrar</button> <!-- Botón para cerrar el popup -->
     </div>
   </div>
   
   <header>
     <div class="container-fluid">
-      <img src="{% static 'mipetshop/img/logo.jpg' %}" alt="logo" >
+      <img src="{% static 'mipetshop/img/logo.jpg' %}" alt="logo" > <!-- Imagen del logo usando la etiqueta 'static' de Django -->
     </div>
-    <h1>Pet Shop</h1>
-    <p>Tu tienda en línea para mascotas</p>
+    <h1>Pet Shop</h1> <!-- Título principal de la página -->
+    <p>Tu tienda en línea para mascotas</p> <!-- Descripción debajo del encabezado -->
   </header>
 
   <!-- Botón para mostrar el Formulario -->
-  <button class="boton-registrarse" onclick="mostrarFormulario()">Registrarse</button>
+  <button class="boton-registrarse" onclick="mostrarFormulario()">Registrarse</button> <!-- Botón para mostrar el formulario de registro -->
   <br>
 
   <!-- Formulario -->
-  <div id="formulario" style="display: none;">
-    <form id="formularioRegistro">
+  <div id="formulario" style="display: none;"> <!-- Contenedor del formulario que inicialmente está oculto -->
+    <form id="formularioRegistro"> <!-- Formulario de registro -->
       <div class="campo">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="nombre">Nombre:</label> <!-- Etiqueta para el campo de nombre -->
+          <input type="text" id="nombre" name="nombre" required> <!-- Campo de entrada para el nombre -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para el nombre -->
       </div>
       <div class="campo">
-          <label for="apellidoPaterno">Apellido Paterno:</label>
-          <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="apellidoPaterno">Apellido Paterno:</label> <!-- Etiqueta para el campo de apellido paterno -->
+          <input type="text" id="apellidoPaterno" name="apellidoPaterno" required> <!-- Campo de entrada para el apellido paterno -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para el apellido paterno -->
       </div>
       <div class="campo">
-          <label for="apellidoMaterno">Apellido Materno:</label>
-          <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="apellidoMaterno">Apellido Materno:</label> <!-- Etiqueta para el campo de apellido materno -->
+          <input type="text" id="apellidoMaterno" name="apellidoMaterno" required> <!-- Campo de entrada para el apellido materno -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para el apellido materno -->
       </div>
       <div class="campo">
-          <label for="correoElectronico">Correo Electrónico:</label>
-          <input type="email" id="correoElectronico" name="correoElectronico" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="correoElectronico">Correo Electrónico:</label> <!-- Etiqueta para el campo de correo electrónico -->
+          <input type="email" id="correoElectronico" name="correoElectronico" required> <!-- Campo de entrada para el correo electrónico -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para el correo electrónico -->
       </div>
       <div class="campo">
-          <label for="contrasena">Contraseña:</label>
-          <input type="password" id="contrasena" name="contrasena" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="contrasena">Contraseña:</label> <!-- Etiqueta para el campo de contraseña -->
+          <input type="password" id="contrasena" name="contrasena" required> <!-- Campo de entrada para la contraseña -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para la contraseña -->
       </div>
       <div class="campo">
-          <label for="confirmarContrasena">Confirmar Contraseña:</label>
-          <input type="password" id="confirmarContrasena" name="confirmarContrasena" required>
-          <span class="error" style="display:none;color:red;"></span>
+          <label for="confirmarContrasena">Confirmar Contraseña:</label> <!-- Etiqueta para el campo de confirmación de contraseña -->
+          <input type="password" id="confirmarContrasena" name="confirmarContrasena" required> <!-- Campo de entrada para la confirmación de la contraseña -->
+          <span class="error" style="display:none;color:red;"></span> <!-- Mensaje de error para la confirmación de la contraseña -->
       </div>
-      <button type="submit">Registrarse</button>
+      <button type="submit">Registrarse</button> <!-- Botón para enviar el formulario de registro -->
   </form>
-  <button onclick="cerrarFormulario()">Cerrar</button>
+  <button onclick="cerrarFormulario()">Cerrar</button> <!-- Botón para cerrar el formulario -->
   </div>
     
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!-- Barra de navegación -->
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}">PetShop</a>
+      <a class="navbar-brand" href="{% url 'index' %}">PetShop</a> <!-- Enlace a la página principal -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> <!-- Contenido colapsable de la barra de navegación -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a> <!-- Enlace a la página principal -->
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Gatos
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li>
-              <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li>
+              <li><a class="dropdown-item" href="{% url 'alimento_seco_gato' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para gatos -->
+              <li><a class="dropdown-item" href="{% url 'alimento_humedo_gato' %}">Alimento Húmedo</a></li> <!-- Enlace a la página de alimento húmedo para gatos -->
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -100,101 +101,121 @@
               Perros
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li>
+              <li><a class="dropdown-item" href="{% url 'alimento_perro' %}">Alimento Seco</a></li> <!-- Enlace a la página de alimento seco para perros -->
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'accesorios' %}">Accesorios</a> <!-- Enlace a la página de accesorios -->
           </li>
         </ul>
-        <a href="{% url 'api' %}" class="btn btn-outline-success">Adopta Huachitos</a>
+        <!-- Botón de Ingresar, Salir o Bienvenida -->
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %} <!-- Verifica si el usuario está autenticado -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a> <!-- Muestra un mensaje de bienvenida con el nombre de usuario -->
+          </li>
+          <li class="nav-item">
+            <form action="{% url 'logout' %}" method="post"> <!-- Formulario para cerrar sesión -->
+              {% csrf_token %} <!-- Token CSRF para seguridad en formularios de Django -->
+              <button type="submit" class="nav-link btn btn-link">Salir</button> <!-- Botón para cerrar sesión -->
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a> <!-- Enlace a la página de inicio de sesión -->
+          </li>
+        {% endif %}
+      </ul>
+        <a href="{% url 'api' %}" class="btn btn-outline-success">Adopta Huachitos</a> <!-- Enlace a la página de adopción de mascotas -->
       </div>
     </div>
   </nav>
 
   <!-- Carrusel -->
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> <!-- Contenedor del carrusel -->
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> <!-- Botón del indicador del primer slide -->
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button> <!-- Botón del indicador del segundo slide -->
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> <!-- Botón del indicador del tercer slide -->
     </div>
-    <div class="carousel-inner">
+    <div class="carousel-inner"> <!-- Contenedor de los slides -->
       <div class="carousel-item active">
-        <img src="{% static 'mipetshop/img/Gato1.jpg' %}" class="d-block w-100" alt="gatito" height="500">
+        <img src="{% static 'mipetshop/img/Gato1.jpg' %}" class="d-block w-100" alt="gatito" height="500"> <!-- Primer slide con imagen -->
       </div>
       <div class="carousel-item">
-        <img src="{% static 'mipetshop/img/Perro1.jpg' %}" class="d-block w-100" alt="perrito" height="500">
+        <img src="{% static 'mipetshop/img/Perro1.jpg' %}" class="d-block w-100" alt="perrito" height="500"> <!-- Segundo slide con imagen -->
       </div>
       <div class="carousel-item">
-        <img src="{% static 'mipetshop/img/accesorios1.jpg' %}" class="d-block w-100" alt="accesorios" height="500">
+        <img src="{% static 'mipetshop/img/accesorios1.jpg' %}" class="d-block w-100" alt="accesorios" height="500"> <!-- Tercer slide con imagen -->
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"> <!-- Botón para ir al slide anterior -->
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"> <!-- Botón para ir al siguiente slide -->
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
   <div class="container">
-    <h2>Nuestros productos</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="{% static 'mipetshop/img/alimento_perro.avif' %}" alt="Comida para perros">
-        <h3>Comida para perros</h3>
-        <p>La mejor nutrición para tu amigo peludo.</p>
+    <h2>Nuestros productos</h2> <!-- Encabezado de la sección de productos -->
+    <div class="products"> <!-- Contenedor de productos -->
+      <div class="product-card"> <!-- Tarjeta de producto -->
+        <img src="{% static 'mipetshop/img/alimento_perro.avif' %}" alt="Comida para perros"> <!-- Imagen del producto -->
+        <h3>Comida para perros</h3> <!-- Título del producto -->
+        <p>La mejor nutrición para tu amigo peludo.</p> <!-- Descripción del producto -->
       </div>
-      <div class="product-card">
-        <img src="{% static 'mipetshop/img/alimento_gatos.jpg' %}" alt="Comida para gatos">
-        <h3>Comida para gatos</h3>
-        <p>Tu gato quiere darse un banquete.</p>
+      <div class="product-card"> <!-- Tarjeta de producto -->
+        <img src="{% static 'mipetshop/img/alimento_gatos.jpg' %}" alt="Comida para gatos"> <!-- Imagen del producto -->
+        <h3>Comida para gatos</h3> <!-- Título del producto -->
+        <p>Tu gato quiere darse un banquete.</p> <!-- Descripción del producto -->
       </div>
-      <div class="product-card">
-        <img src="{% static 'mipetshop/img/accesorios_mascotas.jpg' %}" alt="Accesorios">
-        <h3>Accesorios</h3>
-        <p>Accesorios para el regalón de la casa.</p>
+      <div class="product-card"> <!-- Tarjeta de producto -->
+        <img src="{% static 'mipetshop/img/accesorios_mascotas.jpg' %}" alt="Accesorios"> <!-- Imagen del producto -->
+        <h3>Accesorios</h3> <!-- Título del producto -->
+        <p>Accesorios para el regalón de la casa.</p> <!-- Descripción del producto -->
       </div>
     </div>
   </div>
   <footer>
-    <p>© 2024 Pet Shop. Todos los derechos reservados.</p>
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+    <p>© 2024 Pet Shop. Todos los derechos reservados.</p> <!-- Texto del pie de página -->
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal"> <!-- Botón para abrir el modal de contacto -->
       Contacto
     </button>
   </footer>
 
   <!-- Modal -->
-  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true"> <!-- Modal de contacto -->
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="contactModalLabel">Contacto PetShop</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="contactModalLabel">Contacto PetShop</h5> <!-- Título del modal -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Botón para cerrar el modal -->
         </div>
         <div class="modal-body">
-          <p>Correo electrónico: contacto@petshop.com</p>
-          <p>Teléfono: +56267865236</p>
-          <p>Dirección: Calle Los Álamos 854, Santiago, Chile</p>
+          <p>Correo electrónico: contacto@petshop.com</p> <!-- Información de contacto -->
+          <p>Teléfono: +56267865236</p> <!-- Información de contacto -->
+          <p>Dirección: Calle Los Álamos 854, Santiago, Chile</p> <!-- Información de contacto -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> <!-- Botón para cerrar el modal -->
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    function mostrarFormulario() {
+    function mostrarFormulario() { <!-- Función JavaScript para mostrar el formulario -->
         document.getElementById("formulario").style.display = "block";
     }
-
-    function cerrarFormulario() {
+    
+    //Funcion Java para cerrar el formulario
+    function cerrarFormulario() { 
         document.getElementById("formulario").style.display = "none";
     }
   </script>
   
 </body>
-</html>
+</html> <!-- Finaliza el documento HTML -->
+

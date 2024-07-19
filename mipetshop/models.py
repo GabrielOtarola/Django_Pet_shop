@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models  # Importa el módulo models de Django para definir modelos
 
 # Modelo Producto
 class Producto(models.Model):  # Define una clase Producto que hereda de models.Model
@@ -6,3 +6,12 @@ class Producto(models.Model):  # Define una clase Producto que hereda de models.
     precio = models.IntegerField()  # Campo entero para el precio del producto
     descripcion = models.CharField(max_length=200)  # Campo de texto con un máximo de 200 caracteres para la descripción del producto
 
+<<<<<<< HEAD
+# Modelo Producto
+class Producto(models.Model):  # Define una clase Producto que hereda de models.Model
+    nombre = models.CharField(max_length=80)  # Campo de texto con un máximo de 80 caracteres para el nombre del producto
+    precio = models.IntegerField()  # Campo entero para el precio del producto
+    descripcion = models.CharField(max_length=200)  # Campo de texto con un máximo de 200 caracteres para la descripción del producto
+
+=======
+>>>>>>> main

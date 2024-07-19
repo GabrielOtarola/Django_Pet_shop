@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 # Importa los decoradores login_required y user_passes_test del módulo django.contrib.auth.decorators
 
+<<<<<<< HEAD
 from .models import Producto,Cliente,Mascota
 # Importa el modelo Producto desde el archivo models.py del mismo directorio
 
@@ -11,6 +12,14 @@ from .forms import ProductoForm,ClienteForm,MascotaForm
 # Importa el formulario ProductoForm desde el archivo forms.py del mismo directorio
 
 
+=======
+from .models import Producto
+# Importa el modelo Producto desde el archivo models.py del mismo directorio
+
+from .forms import ProductoForm
+# Importa el formulario ProductoForm desde el archivo forms.py del mismo directorio
+
+>>>>>>> main
 from django.contrib.auth import logout, authenticate, login
 # Importa las funciones logout, authenticate y login del módulo django.contrib.auth
 
@@ -22,18 +31,23 @@ def is_admin(user):
 # Vistas principales
 def index(request):
     return render(request, 'mipetshop/index.html')
+# Define la vista index que renderiza la plantilla 'mipetshop/index.html'
 
 def alimento_seco_gato(request):
     return render(request, 'mipetshop/alimento_seco_gato.html')
+# Define la vista alimento_seco_gato que renderiza la plantilla 'mipetshop/alimento_seco_gato.html'
 
 def alimento_humedo_gato(request):
     return render(request, 'mipetshop/alimento_humedo_gato.html')
+# Define la vista alimento_humedo_gato que renderiza la plantilla 'mipetshop/alimento_humedo_gato.html'
 
 def alimento_perro(request):
     return render(request, 'mipetshop/alimento_perro.html')
+# Define la vista alimento_perro que renderiza la plantilla 'mipetshop/alimento_perro.html'
 
 def accesorios(request):
     return render(request, 'mipetshop/accesorios.html')
+# Define la vista accesorios que renderiza la plantilla 'mipetshop/accesorios.html'
 
 def api(request):
     return render(request, 'mipetshop/api.html')
