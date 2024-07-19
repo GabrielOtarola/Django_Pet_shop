@@ -1,6 +1,5 @@
 from django.urls import path  # Importa la función path para definir las rutas URL
-from .views import login_view, logout_view, index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato, lista_clientes, detalle_cliente, crear_cliente, editar_cliente, cliente_delete
-from .views import lista_mascotas, detalle_mascota, crear_mascota, editar_mascota, mascota_delete
+from .views import login_view, logout_view, index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato
 # Importa las vistas desde el archivo views.py del mismo directorio
 
 urlpatterns = [
