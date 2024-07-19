@@ -1,5 +1,6 @@
 from django.urls import path  # Importa la función path para definir las rutas URL
-from .views import login_view, logout_view, index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato
+from .views import login_view, logout_view, index, alimento_seco_gato, alimento_humedo_gato, alimento_perro, accesorios, api, lista_productos, detalle_producto, crear_producto, editar_producto, eliminar_producto, redirect_to_alimento_seco_gato, lista_clientes, detalle_cliente, crear_cliente, editar_cliente, cliente_delete
+from .views import lista_mascotas, detalle_mascota, crear_mascota, editar_mascota, mascota_delete
 # Importa las vistas desde el archivo views.py del mismo directorio
 
 urlpatterns = [
@@ -17,4 +18,17 @@ urlpatterns = [
     path('crear/', crear_producto, name='crear_producto'),  # Define la ruta para crear un producto, que usa la vista 'crear_producto'
     path('<int:pk>/editar/', editar_producto, name='editar_producto'),  # Define la ruta para editar un producto, que usa la vista 'editar_producto' y espera un parámetro entero 'pk'
     path('<int:pk>/eliminar/', eliminar_producto, name='eliminar_producto'),  # Define la ruta para eliminar un producto, que usa la vista 'eliminar_producto' y espera un parámetro entero 'pk'
+    
+    path('clientes/', lista_clientes, name='lista_cliente'),
+    path('clientes/<int:pk>/', detalle_cliente, name='detalle_cliente'),
+    path('clientes/crear/', crear_cliente, name='crear_cliente'),
+    path('clientes/<int:pk>/editar/', editar_cliente, name='editar_cliente'),
+    path('clientes/<int:pk>/eliminar/', cliente_delete, name='eliminar_cliente'),
+
+    path('mascotas/', lista_mascotas, name='lista_mascotas'),
+    path('mascotas/<int:pk>/', detalle_mascota, name='detalle_mascota'),
+    path('mascotas/crear/', crear_mascota, name='crear_mascota'),
+    path('mascotas/<int:pk>/editar/', editar_mascota, name='editar_mascota'),
+    path('mascotas/<int:pk>/eliminar/', mascota_delete, name='eliminar_mascota'),
 ]
+

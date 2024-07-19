@@ -4,22 +4,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 # Importa los decoradores login_required y user_passes_test del módulo django.contrib.auth.decorators
 
-<<<<<<< HEAD
 from .models import Producto,Cliente,Mascota
 # Importa el modelo Producto desde el archivo models.py del mismo directorio
 
 from .forms import ProductoForm,ClienteForm,MascotaForm
 # Importa el formulario ProductoForm desde el archivo forms.py del mismo directorio
 
-
-=======
-from .models import Producto
-# Importa el modelo Producto desde el archivo models.py del mismo directorio
-
-from .forms import ProductoForm
-# Importa el formulario ProductoForm desde el archivo forms.py del mismo directorio
-
->>>>>>> main
 from django.contrib.auth import logout, authenticate, login
 # Importa las funciones logout, authenticate y login del módulo django.contrib.auth
 
@@ -132,3 +122,94 @@ def login_view(request):
 # Define la vista login_view que maneja la autenticación de usuarios. 
 # Si el método es POST, intenta autenticar al usuario. Si las credenciales son correctas, inicia sesión y redirige a la página de inicio. 
 # Si no, muestra un mensaje de error en la plantilla 'registration/login.html'. Si el método no es POST, simplemente muestra la plantilla de inicio de sesión.
+
+# Vistas para Clientes
+@login_required
+def lista_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'mipetshop/lista_clientes.html', {'clientes': clientes})
+
+
+@login_required
+def detalle_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    return render(request, 'mipetshop/detalle_cliente.html', {'cliente': cliente})
+
+
+
+@user_passes_test(is_admin)
+def crear_cliente(request):
+    if request.method == "POST":
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            cliente = form.save()
+            return redirect('detalle_cliente', pk=cliente.pk)
+    else:
+        form = ClienteForm()
+    return render(request, 'mipetshop/formulario_clientes.html', {'form': form})
+
+
+@user_passes_test(is_admin)
+def editar_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == 'POST':
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_cliente')
+    else:
+        form = ClienteForm(instance=cliente)
+    return render(request, 'mipetshop/formulario_cliente.html', {'form': form, 'operacion': 'Editar'})
+
+
+
+@user_passes_test(is_admin)
+def cliente_delete(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('cliente_list')
+    return render(request, 'mipetshop/cliente_confirm_delete.html', {'cliente': cliente})
+
+#vistas de mascota
+@login_required
+def lista_mascotas(request):
+    mascotas = Mascota.objects.all()
+    return render(request, 'mipetshop/lista_mascotas.html', {'mascotas': mascotas})
+
+@login_required
+def detalle_mascota(request, pk):
+    mascota = get_object_or_404(Mascota, pk=pk)
+    return render(request, 'mipetshop/detalle_mascota.html', {'mascota': mascota})
+
+
+@user_passes_test(is_admin)
+def crear_mascota(request):
+    if request.method == "POST":
+        form = MascotaForm(request.POST)
+        if form.is_valid():
+            mascota = form.save()
+            return redirect('detalle_mascota', pk=mascota.pk)
+    else:
+        form = MascotaForm()
+    return render(request, 'mipetshop/formulario_mascotas.html', {'form': form})
+
+
+@user_passes_test(is_admin)
+def editar_mascota(request, pk):
+    mascota = get_object_or_404(Mascota, pk=pk)
+    if request.method == "POST":
+        form = MascotaForm(request.POST, instance=mascota)
+        if form.is_valid():
+            mascota = form.save()
+            return redirect('detalle_mascota', pk=mascota.pk)
+    else:
+        form = MascotaForm(instance=mascota)
+    return render(request, 'mipetshop/formulario_mascotas.html', {'form': form})
+
+
+@user_passes_test(is_admin)
+def mascota_delete(request, pk):
+    mascota = get_object_or_404(Mascota, pk=pk)
+    mascota.delete()
+    return redirect('lista_mascotas')
